@@ -11,6 +11,14 @@
 // Hint: keeping track of the size in percentage might be easier.
 // Hint: Make sure you quote the emoji characters. They are strings, after all.
 // Hint: document.getElementById("balloon") will get the balloon element on the page.
+let p = document.querySelector("p");
+let size;
+
+function setSize(newSize) {
+  size = newSize;
+  p.style.fontSize = size + "px";
+}
+setSize(20);
 
 // 2. The index.html page has a tabbed layout. Make the default state of the layout show
 // the first tab, and make it so that when you click the links at the top the correct
