@@ -20,6 +20,20 @@ function setSize(newSize) {
 }
 setSize(20);
 
+function arrow(event) {
+  if (event.key == "ArrowUp") {
+    if (size > 70) {
+      p.textContent = "💥";
+    } else {
+      setSize(size * 1.1);
+      event.preventDefault();
+    }
+  } else if (event.key == "ArrowDown") {
+    setSize(size * 0.9);
+    event.preventDefault();
+  }
+}
+
 // 2. The index.html page has a tabbed layout. Make the default state of the layout show
 // the first tab, and make it so that when you click the links at the top the correct
 // tab's contents are displayed and the others are hidden. Prevent the default action of
