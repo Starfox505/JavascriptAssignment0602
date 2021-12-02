@@ -11,28 +11,50 @@
 // Hint: keeping track of the size in percentage might be easier.
 // Hint: Make sure you quote the emoji characters. They are strings, after all.
 // Hint: document.getElementById("balloon") will get the balloon element on the page.
+
 let p = document.querySelector("p");
+//This line selects the paragraph element in the HTML
 let size;
+//creating the function size
 
 function setSize(newSize) {
   size = newSize;
   p.style.fontSize = size + "px";
 }
+//This calls a new function called set size, and makes set size's value as newSize. It then makes size equal to newSize. It then calls the paragraph style's font size, and makes the size increase each pixel.
 setSize(20);
+//This sets the size function's base level to 20px
 
 function arrow(event) {
+  //This calls a new function called arrow, and attaches an event to it.
   if (event.key == "ArrowUp") {
+    //This if statement essentially calls calls the event and its value key, and makes it equal to the value Arrow Up.
     if (size > 70) {
+      //This if statement says if the size is less than 70 than proceed.
       p.textContent = "💥";
+      //This is calling the paragraph text content, the balloon, and tells it to display an exploding emoji if it exceeds 70px.
     } else {
+      //This is an else statement, as it must also grow and shrink.
       setSize(size * 1.1);
+      //This basically increases the size of the balloon by multiply the size by 1.1.
       event.preventDefault();
+      //This prevents the event from doing what it is supposed to do, and ends up doing what you are programming it to do.
     }
   } else if (event.key == "ArrowDown") {
+    //this else if statment is the last of the statements, as the balloon still need to shrink. it calls the event and its value key and makes it equal to the value Arrow Down.
     setSize(size * 0.9);
+    //This decreases the size of the balloon by multiplying it by .9.
+    p.textContent = "🎈";
+    //This makes the text content back into a balloon again, if you decrease the size of the balloon. This is to prevent the explosion emoji from showing up when decreasing in size.
     event.preventDefault();
+    //This once again prevents the default of the event from happening.
   }
 }
+
+document.body.addEventListener("keydown", arrow);
+//This creates an event listener to the documents body.
+
+//This function is set to
 
 // 2. The index.html page has a tabbed layout. Make the default state of the layout show
 // the first tab, and make it so that when you click the links at the top the correct
